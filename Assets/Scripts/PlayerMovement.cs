@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D coll;
     private Animator anim;
     private SpriteRenderer sprite;
+    private GameObject tail,eye;
+    public SpriteRenderer sr;
+    private bool facingDirection;
 
     [SerializeField] private LayerMask jumpableGround;
 
@@ -26,6 +29,10 @@ public class PlayerMovement : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         coll = GetComponent<BoxCollider2D>();
+        tail = GameObject.FindWithTag("tail");
+        eye = GameObject.FindWithTag("eye");
+        sr=tail.GetComponent<SpriteRenderer>();
+        facingDirection = true;
     }
 
     // Update is called once per frame
@@ -41,8 +48,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         UpdateAnimationState();
-
+       
     }
+
+    
+
     private void UpdateAnimationState()
     {
         MovementState state;
@@ -50,12 +60,14 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.running;
             sprite.flipX = false;
+            sr.flipX = false;
 
         }
         else if (dirX < 0f)
         {
             state = MovementState.running;
             sprite.flipX = true;
+            sr.flipX = true;
         }
         else
         {

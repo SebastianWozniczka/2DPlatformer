@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class PlayerLife : MonoBehaviour
 {
     private Animator anim;
     private Rigidbody2D rb;
+    private GameObject eye;
 
     [SerializeField] private AudioSource deathSoundEffect;
 
@@ -14,6 +16,7 @@ public class PlayerLife : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        eye = GameObject.FindWithTag("eye");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -23,11 +26,12 @@ public class PlayerLife : MonoBehaviour
             Die();
         }
     }
-    private void Die()
+    public void Die()
     {
         deathSoundEffect.Play();
         rb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death");
+       
 
     }
     private void RestartLevel()

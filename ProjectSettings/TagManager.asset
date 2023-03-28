@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Melon
   - Trap
+  - tail
+  - eye
   layers:
   - Default
   - TransparentFX
