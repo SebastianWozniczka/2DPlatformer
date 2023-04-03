@@ -10,6 +10,7 @@ public class PlayerLife : MonoBehaviour
     private Rigidbody2D rb;
     private GameObject eye;
 
+
     [SerializeField] private AudioSource deathSoundEffect;
 
     private void Start()
