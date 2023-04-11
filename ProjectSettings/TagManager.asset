@@ -16,7 +16,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - LineRenderer
   - 
   - 
   - 
@@ -50,4 +50,7 @@ TagManager:
     locked: 0
   - name: Terrain
     uniqueID: 2290098201
+    locked: 0
+  - name: LineRenderer
+    uniqueID: 1849270733
     locked: 0
